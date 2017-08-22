@@ -1,0 +1,29 @@
+var socket;
+var current;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  background(0);
+
+  fill(255);
+  stroke(255);
+
+  current = {x: 640 / 2, y: 480 / 2};
+
+  socket = new WebSocket("ws://" + document.location.hostname + "/ws");
+
+  socket.onmessage = function(event) {
+    var e = JSON.parse(event.data);
+    if (e.event == "move") {
+      current.x += e.x;
+      current.y += e.y;
+    } else if (e.event == "button-down") {
+      clear();
+      background(0);
+    }
+  }
+}
+
+function draw() {
+  ellipse(current.x, current.y, 10, 10);
+}
