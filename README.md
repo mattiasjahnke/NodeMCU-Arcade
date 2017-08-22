@@ -2,7 +2,7 @@
 
 ## Introduction
 
-**I wanted to build a "physical" gaming device that:*
+**I wanted to build a "physical" gaming device that:**
 * Had it's only input to be a joystick
 * Could provide a simple foundation out of the box for developing web games
 * Didn't require an existing WiFi network - it's portable anywhere
